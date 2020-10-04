@@ -23,6 +23,13 @@ public class ShippingFee {
         Voucher voucher = new Voucher(this.code);
         float discount = voucher.getDiscount();
 
+        /*
+        boolean expired = voucher.isExpired();
+        if (expired) {
+            return cost;
+        }
+        */
+
         return computeDiscountedPrice(cost, discount);
     }
 
