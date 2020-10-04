@@ -7,6 +7,7 @@ public class ShippingFee {
     final private float height;
     final private float width;
     final private float length;
+    final private boolean check_expiry;
 
     public ShippingFee(String code, float weight, float height, float width, float length) {
         this.code = code;
@@ -14,6 +15,7 @@ public class ShippingFee {
         this.height = height;
         this.width = width;
         this.length = length;
+        this.check_expiry = false;
     }
 
     public String getShippingFee() {
@@ -23,12 +25,11 @@ public class ShippingFee {
         Voucher voucher = new Voucher(this.code);
         float discount = voucher.getDiscount();
 
-        /*
-        boolean expired = voucher.isExpired();
-        if (expired) {
-            return cost;
+        if (this.check_expiry) {
+            if (voucher.isExpired()) {
+                return cost;
+            }
         }
-        */
 
         return computeDiscountedPrice(cost, discount);
     }
