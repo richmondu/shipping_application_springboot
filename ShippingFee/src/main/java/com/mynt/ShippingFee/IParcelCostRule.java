@@ -1,16 +1,12 @@
 package com.mynt.ShippingFee;
 
-public class IParcelCostRule extends IParcel {
+abstract class IParcelCostRule extends IParcel {
 
     public IParcelCostRule(float weight, float height, float width, float length) {
         super(weight, height, width, length);
     }
 
-    public String getCost() {
-        return "N/A";
-    }
+    abstract public String getCost();
 
-    public boolean checkCondition() {
-        return true;
-    }
+    abstract public boolean checkCondition();
 }
