@@ -1,6 +1,5 @@
 package com.mynt.ShippingFee;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 
 
@@ -11,16 +10,14 @@ public class Parcel extends IParcel {
     }
 
     public String getCost() {
-        ArrayList<IParcelCostRule> rules = new ArrayList<IParcelCostRule>();
+        ArrayList<IParcelCostRule> rules = new ArrayList<>();
         rules.add(new ParcelCostRuleReject(weight, height, width, length));
         rules.add(new ParcelCostRuleHeavy(weight, height, width, length));
         rules.add(new ParcelCostRuleSmall(weight, height, width, length));
         rules.add(new ParcelCostRuleMedium(weight, height, width, length));
         rules.add(new ParcelCostRuleLarge(weight, height, width, length));
 
-        Iterator<IParcelCostRule> it = rules.iterator();
-        while (it.hasNext()) {
-            IParcelCostRule rule = it.next();
+        for (IParcelCostRule rule : rules) {
             if (rule.checkCondition()) {
                 return rule.getCost();
             }

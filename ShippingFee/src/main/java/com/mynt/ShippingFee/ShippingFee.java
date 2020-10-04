@@ -2,11 +2,11 @@ package com.mynt.ShippingFee;
 
 public class ShippingFee {
 
-    private String code;
-    private float weight;
-    private float height;
-    private float width;
-    private float length;
+    final private String code;
+    final private float weight;
+    final private float height;
+    final private float width;
+    final private float length;
 
     public ShippingFee(String code, float weight, float height, float width, float length) {
         this.code = code;

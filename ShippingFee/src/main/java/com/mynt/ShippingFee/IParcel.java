@@ -14,5 +14,5 @@ public class IParcel {
         this.width = width;
         this.length = length;
         this.volume = height * width * length;
-    };
+    }
 }

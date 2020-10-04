@@ -8,14 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 
-import org.springframework.web.client.RestTemplate;
-import org.springframework.http.ResponseEntity;
-import java.net.URI;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
-
-
 @SpringBootApplication
 @RestController
 public class RestApi {
