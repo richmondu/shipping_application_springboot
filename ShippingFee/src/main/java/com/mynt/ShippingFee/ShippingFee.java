@@ -25,13 +25,18 @@ public class ShippingFee {
         Voucher voucher = new Voucher(this.code);
         float discount = voucher.getDiscount();
 
-        if (this.check_expiry) {
-            if (voucher.isExpired()) {
-                return cost;
-            }
+        if (isExpired(voucher)) {
+            return cost;
         }
 
         return computeDiscountedPrice(cost, discount);
+    }
+
+    private boolean isExpired(Voucher voucher) {
+        if (this.check_expiry) {
+            return voucher.isExpired();
+        }
+        return false;
     }
 
     private String computeDiscountedPrice(String cost, float discount) {
