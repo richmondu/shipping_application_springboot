@@ -1,6 +1,5 @@
 package com.mynt.ShippingFee;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class Parcel extends IParcel {
